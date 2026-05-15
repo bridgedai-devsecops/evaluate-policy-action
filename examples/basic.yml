@@ -1,0 +1,18 @@
+name: example-evaluate-policy-basic
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: bridgedai-devsecops/evaluate-policy-action@v1.0.0
+        with:
+          tenant: demo
+          artifact-digest: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          policy: demo:ALLOW
+          mode: mock
+

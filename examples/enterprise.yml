@@ -1,0 +1,19 @@
+name: example-evaluate-policy-enterprise
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    environment: bridgedai-demo
+    steps:
+      - uses: bridgedai-devsecops/evaluate-policy-action@v1.0.0
+        with:
+          tenant: demo
+          artifact-digest: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          policy: demo:WARN
+          mode: mock
+

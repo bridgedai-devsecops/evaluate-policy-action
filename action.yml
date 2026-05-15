@@ -1,0 +1,49 @@
+name: 'BridgedAI Evaluate Policy'
+description: 'Ask BridgedAI for a release gate policy decision.'
+branding:
+  icon: 'checklist'
+  color: 'blue'
+inputs:
+  api-url:
+    description: 'BridgedAI API base URL.'
+    required: false
+  access-token:
+    description: 'BridgedAI access token (masked by the action).'
+    required: false
+  tenant:
+    description: 'Tenant identifier.'
+    required: true
+  artifact-digest:
+    description: 'Artifact digest (sha256:…).'
+    required: true
+  policy:
+    description: 'Policy name or id.'
+    required: true
+  environment:
+    description: 'Target environment label.'
+    required: false
+    default: ''
+  evidence-bundle-id:
+    description: 'Evidence bundle id from upload-evidence.'
+    required: false
+    default: ''
+  mode:
+    description: 'production or mock'
+    required: false
+    default: 'production'
+outputs:
+  decision:
+    description: 'ALLOW | WARN | BLOCK'
+  score:
+    description: 'Numeric score as string.'
+  reason:
+    description: 'Human-readable reason.'
+  policy-result-id:
+    description: 'Policy evaluation id.'
+  policy-result-file:
+    description: 'Path to written policy result JSON.'
+  trust-graph-url:
+    description: 'Trust graph URL when provided.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
