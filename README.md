@@ -2,7 +2,7 @@
 
 ## What this action does
 
-Calls BridgedAI policy evaluation (`POST /api/v1/release-gates/evaluate`) in production, or returns deterministic mock decisions in `mode: mock`.
+Calls the public BridgedAI release gate API (`POST /v1/enforcement/release-gate/evaluate` on **`https://api.bridgedai.io`**) with the OIDC access token from `auth-action`, or returns deterministic mock decisions in `mode: mock`.
 
 ## Why BridgedAI exists
 
