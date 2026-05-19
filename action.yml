@@ -2,7 +2,7 @@ name: 'BridgedAI Evaluate Policy'
 description: 'Evaluate BridgedAI release gate policy via POST /v1/enforcement/release-gate/evaluate on api.bridgedai.io.'
 author: 'BridgedAI'
 branding:
-  icon: 'checklist'
+  icon: 'shield'
   color: 'blue'
 inputs:
   api-url:
