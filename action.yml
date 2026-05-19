@@ -1,18 +1,38 @@
 name: 'BridgedAI Evaluate Policy'
-description: 'Ask BridgedAI for a release gate policy decision.'
+description: 'Evaluate BridgedAI release gate policy via POST /v1/enforcement/release-gate/evaluate on api.bridgedai.io.'
+author: 'BridgedAI'
 branding:
   icon: 'checklist'
   color: 'blue'
 inputs:
   api-url:
-    description: 'BridgedAI API base URL.'
+    description: 'BridgedAI API base URL. Defaults to https://api.bridgedai.io when omitted.'
     required: false
+    default: 'https://api.bridgedai.io'
   access-token:
     description: 'BridgedAI access token (masked by the action).'
     required: false
   tenant:
-    description: 'Tenant identifier.'
+    description: 'BridgedAI organization id (orgId) for POST /v1/enforcement/release-gate/evaluate.'
     required: true
+  org-id:
+    description: 'Optional org id override; when omitted, tenant is used as orgId.'
+    required: false
+  build-id:
+    description: 'Optional Bridged build id. When omitted, workflow/repo context is sent for build correlation.'
+    required: false
+  repo-full-name:
+    description: 'Repository full name (default GITHUB_REPOSITORY).'
+    required: false
+  workflow-run-id:
+    description: 'GitHub workflow run id (default GITHUB_RUN_ID).'
+    required: false
+  commit-sha:
+    description: 'Commit SHA (default GITHUB_SHA).'
+    required: false
+  branch:
+    description: 'Branch (default GITHUB_REF_NAME).'
+    required: false
   artifact-digest:
     description: 'Artifact digest (sha256:…).'
     required: true
